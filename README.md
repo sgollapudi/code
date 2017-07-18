@@ -1,1 +1,1 @@
-<h4> All the code is based on my lessons leanred from experience, books, blogs, past mistakes and colleagues. </h4>
+<h4> All the code here is based on lessons learned from my experience, past mistakes, books, blogs and colleagues. </h4>
