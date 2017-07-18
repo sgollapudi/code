@@ -1,5 +1,4 @@
 
-To disable mapper side join
-
+######To disable mapper side join
 set hive.auto.convert.join=false;
 
