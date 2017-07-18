@@ -1,0 +1,6 @@
+CREATE EXTERNAL TABLE <table name> ( columnname datatype)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ‘,’
+LOCATION ‘ hdfs location’;
+
+set hive.cli.print.header=true; // to display header
