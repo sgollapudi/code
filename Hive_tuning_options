@@ -1,4 +1,13 @@
 
-######To disable mapper side join
+// Mapper side join would fail if we try to join two large tables, to disable mapper side join.
 set hive.auto.convert.join=false;
+
+// Hive by default spawns the number of reducers as 1, this is drag on performance when try to join large tables, to increase reducers.
+set mapred.reduce.tasks=50;
+
+Hive Joining strategies
+
+Hive converts join over more than two tables into a single join if the same set of keys are used for join over all tables.
+
+As part of hive query if we try to join more than two tables, having different set of keys for join, then order of the tables in the join statement determine which two tables are joined first. Placing the table having maximum number of filters could improve the performance.
 
