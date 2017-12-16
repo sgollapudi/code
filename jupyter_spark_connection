@@ -1,0 +1,22 @@
+code to be executed from jupter web browser
+import os
+import sys
+os.environ['PYSPARK_SUBMIT_ARGS'] = '--jars <list of comma seperated jars> --master yarn-client  --executor-memory 1G --driver-memory 1g  --num-executors 1 --executor-cores 1 pyspark-shell'
+spark_home = "path of spark home"
+SPARK_HOME="path of spark home"
+if not spark_home:
+        raise ValueError('SPARK_HOME environment variable is not set')
+sys.path.insert(0, os.path.join(spark_home, 'python'))
+sys.path.insert(0, os.path.join(spark_home, 'python/lib/py4j-<version>-src.zip'))
+#execfile(os.path.join(spark_home, 'python/pyspark/shell.py'))
+os.environ["PYSPARK_PYTHON"]="<path of python>"
+exec(compile(open(os.path.join(spark_home, 'python/pyspark/shell.py'), "rb").read(), os.path.join(spark_home, 'python/pyspark/shell.py'), 'exec'))
+
+Code to be executed from system on anaconda is installed
+
+export PATH="<list of jars seperated by: followed by anaconda path>:$PATH"
+export PYTHONPATH="<path of python installation>"
+export PYSPARK_PYTHON="<path of python installation>"
+export PYSPARK_DRIVER_PYTHON="<path of python installation>"
+export SPARK_HOME="Home dir of spark"
+jupyter notebook  --port <port number> --ip='<host name on which this code is run>' --no-browser --certfile=<certificate file.pem> --notebook-dir=<path where all python code needs to be saved>
