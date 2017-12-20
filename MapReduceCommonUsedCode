@@ -1,0 +1,43 @@
+
+Code inside main/run 
+
+Incase no reducers are required, set job.setNumReduceTasks(0)
+Where as part of Mapper we are reading from Hbase--> TableMapReduceUtil.initTableMapperJob(<hbase table name>, <Hbase scan object>,<Mapper class>, <mapper output key>, <mapper output value>, job);
+
+Code for making Oozie parameters accessable in MapReduce
+
+Configuration conf = getConf();
+String loc = System.getProperty("oozie.action.conf.xml");
+if (loc != null) {
+	Path lcp = new Path(loc);
+	conf.addResource(lcp);
+}
+
+In the code use conf.get("parameter name") to get the value for the parameter
+
+Hbase related code
+
+Mapper/Reducer reading from Hbase
+
+Mapper
+
+The mapper class needs to extend org.apache.hadoop.hbase.mapreduce.TableMapper<Key retured by Mapper, value returned by Mapper>
+It can override following methods
+
+protected void setup(Context context) {}
+public void map(ImmutableBytesWritable row, Result value, Context context){}
+protected void cleanup(Context context){}
+
+Reducer
+
+The reducer class needs to extend org.apache.hadoop.hbase.mapreduce.TableReducer
+
+Hbase java api
+
+Instead of using PrefixFilter always use <scan object>.setRowPrefixFilter, the later sets the start and stop row by default which improves the performance.
+
+Use FilterList when more than one filter needs to applied to Scan --> It supports must pass all and must pass one.
+
+
+
+
