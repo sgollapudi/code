@@ -1,0 +1,8 @@
+#Load data from sqlserver database to Spark dataframe
+
+#As part of --jars list sqljdbc needs to be passed --> this is usually available in sqoop jars path
+
+url="jdbc:sqlserver://<host name>;database=<database name>?user=<user name>;password=<password>"
+dframe = sqlContext.read.format("jdbc").option("url", url).option("driver","com.microsoft.sqlserver.jdbc.SQLServerDriver").option("dbtable", "<table name>").load()
+
+Note: Inorder to find the driver class for a different database, search for driver keyword in the JDBC jar of corresponding database.
