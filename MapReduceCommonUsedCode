@@ -87,6 +87,15 @@ Oozie client java api
 			//exit with errir
 		}
 
+Oozie capture output from java action
+			
+		String oozieoutputcapture = System.getProperty("oozie.action.output.properties");
+		if (oozieoutputcapture != null) {
+			FileWriter fwobj = new FileWriter(oozieoutputcapture);
+			Properties pro1 = new Properties();
+			pro1.setProperty("key","value");
+			pro1.store(fwobj, "");
+		}
 
 Miscellaneous   
 WholeFileInputFormat --> allows all the files in the input to be processed using a single mapper.
