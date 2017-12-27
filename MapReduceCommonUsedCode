@@ -50,6 +50,16 @@ Instead of using PrefixFilter always use <scan object>.setRowPrefixFilter, the l
 
 Use FilterList when more than one filter needs to applied to Scan --> It supports must pass all and must pass one.
 
+# Hbase java api code
+		Configuration hconf = HBaseConfiguration.create();
+		try {
+			connection = ConnectionFactory.createConnection(hconf);
+			myTable = connection.getTable(TableName
+					.valueOf("<hbase table name>"));
+
+		} catch (IOException e) {
+			// log error and exit
+		}
 
 Oozie client java api
 
