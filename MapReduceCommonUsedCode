@@ -121,5 +121,7 @@ WholeFileInputFormat --> allows all the files in the input to be processed using
 		TableName <table name object> = <table split object>.getTable();
 		<table name object>.getNameAsString();
 
+# For finding file name and path inside Mapper/Reducer
 
+	((FileSplit) context.getInputSplit()).getPath()
 
