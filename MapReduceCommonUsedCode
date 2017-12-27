@@ -1,3 +1,8 @@
+Commonly used properties
+
+-Dmapreduce.job.reduces=<total>
+-Dmapreduce.job.queuename=<queue name>
+
 
 Code inside main/run 
 
@@ -34,9 +39,16 @@ The reducer class needs to extend org.apache.hadoop.hbase.mapreduce.TableReducer
 
 Hbase java api
 
+export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:`hbase classpath` --> Before running hadoop job that connects to Hbase
+
+For running stand alone Java code that connects to Hbase
+
+java -cp .:<hadoop path>/share/hadoop/common/lib/*:<hbase path>/bin/../lib/*:	 <java code>
+
 Instead of using PrefixFilter always use <scan object>.setRowPrefixFilter, the later sets the start and stop row by default which improves the performance.
 
 Use FilterList when more than one filter needs to applied to Scan --> It supports must pass all and must pass one.
+
 
 
 
