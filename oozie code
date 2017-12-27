@@ -1,0 +1,47 @@
+${wf:id()} --> Oozie workflow id
+
+<configuration>
+<property>
+	<name>mapred.job.queue.name</name>
+	<value><queue name></value>
+</property>
+</configuration>
+
+#Shell action example 
+
+		<action name="Shell_action_example">
+		<shell xmlns="uri:oozie:shell-action:0.1">
+			<job-tracker>${jobtracker}</job-tracker>
+			<name-node>${namenode}</name-node>
+			<configuration>
+				<property>
+					<name>mapred.job.queue.name</name>
+					<value>${queuename}</value>
+				</property>
+			</configuration>
+			<exec>sh</exec>
+			<argument><shell script name>.sh</argument>
+			<argument><parameter 1></argument>
+			<file><HDFS path of shell script>#<shell script></file>
+			<capture-output />
+		</shell>
+		<ok to="ok_action" />
+		<error to="error_action" />
+	  </action>
+  
+  #sub workflow example
+  
+  <action name="sub_workflow_example">
+		<sub-workflow>
+			<app-path><HDFS path of workflow.xml></app-path>
+			<propagate-configuration />
+			<configuration>
+				<property>
+					<name>property name</name>
+					<value>property value</value>
+				</property>
+			</configuration>
+		</sub-workflow>
+		<ok to="ok_action" />
+		<error to="error_action" />
+	</action>	
