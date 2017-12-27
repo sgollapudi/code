@@ -1,0 +1,30 @@
+
+#initial setup
+
+git config user.name "<display user name>"
+git config --global user.email "<email id>"
+
+#To setup git repository from existing code on system
+git init
+git add .
+git commit -m "message"
+git remote add origin <URL>
+git push origin master
+
+#To pull the code
+git pull origin master
+
+git checkout -b <branch> origin/<branch> --> To swich locally to a particular branch
+git fetch --> this would pull all branches
+git checkout branch
+git remote rm <remote name> 
+git remote rename origin old_origin
+
+git add -A --> This would consider all local files
+git agg -u --> This would consider updated and deleted files.
+git remove -v
+git remote show origin
+git log --oneline --decorate
+git checkout master
+git merge hotfix
+git branch -d hotfix
