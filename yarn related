@@ -1,0 +1,2 @@
+yarn logs -applicationId <application id>
+Yarn application -kill <application id>
