@@ -1,0 +1,7 @@
+ scan 'hbase path', {STARTROW=>'value', STOPROW=>'value'+'0'} 
+ scan  'hbase path',  {FILTER => "(PrefixFilter ('value'))"}
+ 
+ 
+ hbase  org.apache.hadoop.hbase.mapreduce.RowCounter -Dmapreduce.job.queuename=queue  <hbase table name> --> For getting table count
+ 
+ hbase org.apache.hadoop.hbase.mapreduce.CopyTable -Dmapreduce.job.queuename=queue --starttime=<start time --optional> --new.name=new_name existingtable
