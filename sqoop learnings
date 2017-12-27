@@ -1,0 +1,17 @@
+--password-file --> HDFS path of password file, care needs to be taken to ensure there is no new line character at end of file
+--username --> RDBMS user name 
+--connect --> RDBMS connection string
+--meta-connect --> Sqoop metastore URL
+--columns --> list of columns that needs to be pulled, this can be different from the one in query 
+--hbase-table --> Hbase table to which data would be sqooped
+--column-family --> Hbase column family
+--hbase-row-key --> Hbase rowkey column
+--split-by --> column on which data would be split, mod function can be used to tune the performance
+-m <total mappers>
+--incremental append -check-column <column name>-->  column used for incremental data extract
+-Dmapred.job.queue.name=<queue name>
+sqoop job --create <sqoop job name> --> sqoop job name to create
+sqoop job --list --> list of sqoop jobs
+sqoop job --exec --> sqoop jobs to execute
+--target-dir --> path where data would be extracted
+
