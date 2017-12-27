@@ -38,8 +38,14 @@ Reducer
 
 The reducer class needs to extend org.apache.hadoop.hbase.mapreduce.TableReducer
 
-Hbase java api
+Inside main
 
+TableMapReduceUtil.initTableMapperJob(List<Scans>, <mapper class>, <output key>, <output value>, <Job object>);
+TableMapReduceUtil.initTableMapperJob(<hbase table name>, <scan object>, <Mapper class>, <output key>, <output value>, <Job object>);
+
+
+Hbase java api
+FilterList --> Specifying more than one filters
 export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:`hbase classpath` --> Before running hadoop job that connects to Hbase
 
 For running stand alone Java code that connects to Hbase
@@ -99,5 +105,21 @@ Oozie capture output from java action
 
 Miscellaneous   
 WholeFileInputFormat --> allows all the files in the input to be processed using a single mapper.
+<counter object>.findCounter("org.apache.hadoop.mapreduce.TaskCounter", "MAP_OUTPUT_RECORDS").getValue() --> For getting Map out record count
+
+#To read data from HDFS file in MapReduce
+	try (FileSystem fsobj = FileSystem.newInstance(<configuration object>);) {
+		BufferedReader br = new BufferedReader(new InputStreamReader(fsobj.open(new Path("file path"))));
+	}
+#For loading data in properties file
+
+	(new Properties()).load(<FileSystem object>.open(new Path("Properties file path")))
+
+# For finding Hbase table name inside mapper/reducer
+
+		TableSplit <table split object> = (TableSplit) context.getInputSplit();
+		TableName <table name object> = <table split object>.getTable();
+		<table name object>.getNameAsString();
+
 
 
