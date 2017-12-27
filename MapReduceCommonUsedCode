@@ -3,6 +3,7 @@ Commonly used properties
 -Dmapreduce.job.reduces=<total>
 -Dmapreduce.job.queuename=<queue name>
 
+For analyzing JVM dump --> eclipse plugin jvisualvm
 
 Code inside main/run 
 
@@ -51,5 +52,8 @@ Use FilterList when more than one filter needs to applied to Scan --> It support
 
 
 
+
+Miscellaneous   
+WholeFileInputFormat --> allows all the files in the input to be processed using a single mapper.
 
 
