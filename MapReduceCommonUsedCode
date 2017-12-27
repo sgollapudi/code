@@ -51,6 +51,31 @@ Instead of using PrefixFilter always use <scan object>.setRowPrefixFilter, the l
 Use FilterList when more than one filter needs to applied to Scan --> It supports must pass all and must pass one.
 
 
+Oozie client java api
+
+		System.setProperty("javax.net.ssl.trustStore", "<ssl truststore path>");
+		System.setProperty("authenticator.class", "com.mapr.security.maprauth.MaprAuthenticator"); --> for mapr
+		AuthOozieClient aoclient = new AuthOozieClient("oozieServer");
+		Properties prop1 = aoclient.createConfiguration();
+		prop1.setProperty("nameNode", "maprfs:///");
+		prop1.setProperty("jobTracker", "job tracker");
+		prop1.setProperty(AuthOozieClient.APP_PATH, "oozie workflow path");
+		prop1.setProperty("queueName", queueName);		
+		prop1.setProperty("oozie.use.system.libpath", "true");		
+		try {
+			String JobId = aoclient.run(prop1);			
+			while (aoclient.getJobInfo(JobId).getStatus() == WorkflowJob.Status.RUNNING) {				
+				Thread.sleep(30 * 1000);
+			}
+			if (aoclient.getJobInfo(JobId).getStatus() == WorkflowJob.Status.FAILED
+					|| aoclient.getJobInfo(JobId).getStatus() == WorkflowJob.Status.KILLED) {
+			
+			//exit 
+			}
+		} catch (OozieClientException | InterruptedException w) {
+			//error 
+			//exit with errir
+		}
 
 
 Miscellaneous   
