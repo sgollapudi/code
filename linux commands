@@ -1,0 +1,8 @@
+Appends constant to 2nd column for all records in a files .
+cat <filename> | awk -F "|" '{$2=$2"_01";}1' OFS="|"
+
+For searching inside a jar
+find / -type f -exec grep -H '<key to search>' {} \; 
+
+For convertind Dos to unix
+:set fileformat=unix
