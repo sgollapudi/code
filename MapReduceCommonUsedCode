@@ -2,6 +2,7 @@ Commonly used properties
 
 -Dmapreduce.job.reduces=<total>
 -Dmapreduce.job.queuename=<queue name>
+-Dmapreduce.job.acl-view-job=<user name>
 
 For analyzing JVM dump --> eclipse plugin jvisualvm
 
