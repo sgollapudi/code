@@ -1,3 +1,7 @@
+.profile change for change directory shortcut
+
+alias udir='cd <path>'
+
 Appends constant to 2nd column for all records in a files .
 cat <filename> | awk -F "|" '{$2=$2"_01";}1' OFS="|"
 
