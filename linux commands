@@ -10,3 +10,5 @@ find / -type f -exec grep -H '<key to search>' {} \;
 
 For convertind Dos to unix
 :set fileformat=unix
+
+jps --> for getting list of hadoop processes running
