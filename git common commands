@@ -11,6 +11,12 @@ git commit -m "message"
 git remote add origin <URL>
 git push origin master
 
+#To pull the code for first time
+
+git init
+git remote add origin <URL>
+git pull origin master
+
 #To pull the code
 git pull origin master
 
