@@ -4,3 +4,6 @@ FIELDS TERMINATED BY ‘,’
 LOCATION ‘ hdfs location’;
 
 set hive.cli.print.header=true; // to display header
+
+set mapred.job.queue.name=<queue name>;
+set tez.queue.name=<queuename>;
