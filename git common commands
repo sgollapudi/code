@@ -37,3 +37,6 @@ git branch -d hotfix
 
 # Find all the files that are committed and would be pushed to remote repo 
 git diff --name-only origin/master..HEAD
+
+# To rename file 
+git mv -f "old file" "new file"
