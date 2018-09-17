@@ -3,6 +3,8 @@ Commonly used properties
 -Dmapreduce.job.reduces=<total>
 -Dmapreduce.job.queuename=<queue name>
 -Dmapreduce.job.acl-view-job=<user name>
+-Dmapreduce.job.reduce.slowstart.completedmaps --> This determines when reducers would start, when the value is set as 1, the reduces 
+will start only after all mappers are 100% complete.
 
 For analyzing JVM dump --> eclipse plugin jvisualvm
 
