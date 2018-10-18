@@ -1,0 +1,1 @@
+Spark automatically converts string to int, in cases where the string starts with zero, zero gets dropped during the process
