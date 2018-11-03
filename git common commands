@@ -25,6 +25,8 @@ git fetch --> this would pull all branches
 git checkout branch
 git remote rm <remote name> 
 git remote rename origin old_origin
+git push -u origin branchname
+ git rebase master
 
 git add -A --> This would consider all local files
 git agg -u --> This would consider updated and deleted files.
