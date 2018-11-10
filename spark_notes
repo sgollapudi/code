@@ -1,4 +1,9 @@
 Spark supports two types of shared variables: broadcast variables, which can be used to cache a value in memory on all nodes, and accumulators, which are variables that are only “added” to, such as counters and sums.
+Spark types of join
+Sort Merge
+Shuffle => When one file is very much smaller than other, file is stored in hash map
+Broadcast =>  => Map side join
+
 
 spark.conf.set ==> Below variables
 spark.sql.join.preferSortMergeJoin --> true to use it by default
